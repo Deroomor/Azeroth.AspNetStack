@@ -5,23 +5,22 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Azeroth.ApiIIS
+namespace Azeroth.ApiIISOwin
 {
     public class ValuesController : ApiController
     {
         // GET api/<controller>
-        public IHttpActionResult Get()
+        public IEnumerable<string> Get()
         {
-            var context= System.Runtime.Remoting.Messaging.CallContext.HostContext;
-            return this.Json(new string[] { "value1", "value2" });
-            
-        }
 
-        
+            return new string[] { "value1", "value2" };
+        }
 
         // GET api/<controller>/5
         public string Get(int id)
         {
+            if (id > 1)
+                throw new ArgumentException("参数错误");
             return "value";
         }
 

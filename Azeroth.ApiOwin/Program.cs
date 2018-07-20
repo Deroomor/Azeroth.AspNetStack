@@ -18,6 +18,7 @@ namespace Azeroth.ApiOwin
             //启动监听
             using (Microsoft.Owin.Hosting.WebApp.Start<Startup>(url: baseAddress))
             {
+                
                 Console.WriteLine("host 已启动：{0}", DateTime.Now);
                 Console.WriteLine("访问：{0}/page/index.html", baseAddress);
                 Console.ReadLine();
